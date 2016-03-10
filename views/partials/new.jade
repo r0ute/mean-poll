@@ -1,0 +1,26 @@
+div.page-header
+    h1 Create New Poll
+
+form(ng-submit='createPoll()')
+    div.form-group
+        label(for='poll-question') Question
+        input#poll-question.form-control(ng-model='poll.question')
+
+    div.form-group
+        label Choises
+        div(ng-repeat='choice in poll.choices')
+            input.form-control(ng-model='choice.text', placeholder='Enter choice {{$index + 1}} text')
+
+    div.row
+        div.col-xs-12
+            button.btn.btn-default(ng-click='addChoice()', type='button') #[span.glyphicon.glyphicon-plus] Add Another
+
+    p
+        hr
+
+    div.row
+        div.col-xs-6
+           a.btn.btn-default(href='#/polls') #[span.glyphicon.glyphicon-arrow-left] Back to Poll List
+        div.col-xs-6
+            button.btn.btn-primary.pull-right Create Poll
+

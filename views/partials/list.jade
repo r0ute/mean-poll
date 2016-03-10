@@ -1,0 +1,18 @@
+div.page-header
+    h1 Poll List
+
+div.row
+    div.col-xs-5
+        a.btn.btn-default(href='#/new') #[span.glyphicon.glyphicon-plus] New Poll
+    diw.col-xs-7
+        input.form-control(placeholder='Search for a poll', ng-model='query')
+
+diw.row
+    diw.col-xs-12
+
+div.row(ng-switch='polls.length')
+    ul(ng-switch-when='0')
+        em No polls in database. Would you like to #[a(href='#/new') create one]?
+    ul(ng-switch-default)
+        li(ng-repeat='poll in polls | filter: query')
+            a(href='#/poll/{{poll._id}}') {{poll.question}}

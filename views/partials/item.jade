@@ -1,0 +1,19 @@
+div.page-header
+    h1 View Poll
+div.well.well-lg
+    strong Question<br>
+    span {{poll.question}}
+p.lead Please select one of the following options.
+form(ng-submit='vote()')
+    div.radio(ng-repeat='choice in poll.choices')
+        label
+            input(type='radio', name='choice', ng-model='poll.userVote', value='{{choice._id}}')
+            span {{choice.text}}
+    p
+        hr
+    div.row
+        div.col-xs-6
+            a.btn.btn-default(href='#/polls') #[span.glyphicon.glyphicon-arrow-left] Back to Poll List
+        div.col-xs-6
+            button.btn.btn-primary.pull-right Vote
+    div
