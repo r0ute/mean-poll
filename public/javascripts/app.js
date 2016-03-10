@@ -1,5 +1,5 @@
 angular.module('polls', ['ngRoute', 'pollServices'])
-    .config(function($routeProvider, $provide) {
+    .config(function($routeProvider) {
         $routeProvider
             .when('/polls', {
                 templateUrl: '/partials/list',
@@ -14,6 +14,4 @@ angular.module('polls', ['ngRoute', 'pollServices'])
                 controller: PollItemCtrl
             })
             .otherwise({ redirectTo: '/polls'});
-
-        $provide.factory('pollService', PollService);
     });
